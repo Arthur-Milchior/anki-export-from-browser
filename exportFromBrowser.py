@@ -58,7 +58,7 @@ def setup(self, did):
         self.frm.format.activated.connect(self.exporterChanged)
         self.exporterChanged(idx)
         # deck list
-        self.decks = [_("All Decks")] 
+        self.decks = [_("All Decks")]
         if self.cids:
             bs=_("Browser's selection")
             debug(f"Adding {bs}")
@@ -85,16 +85,16 @@ def accept(self):
             self.frm.includeMedia.isChecked())
         self.exporter.includeTags = (
             self.frm.includeTags.isChecked())
-### Starting change 
+### Starting change
         if self.frm.deck.currentIndex() == 0:#position 0 means: all decks.
             self.exporter.did = None
-            self.exporter.cids = None 
+            self.exporter.cids = None
         elif self.frm.deck.currentIndex() == 1 and self.cids is not None:#position 1 means: selected decks.
             self.exporter.did = None
             self.exporter.cids = self.cids
         else:
-            self.exporter.cids = None 
-### ending change 
+            self.exporter.cids = None
+### ending change
             name = self.decks[self.frm.deck.currentIndex()]
             self.exporter.did = self.col.decks.id(name)
         if self.isVerbatim:
@@ -180,12 +180,12 @@ def cardIds(self):
         cids= self.cids
     else:
         cids=oldCardIds(self)
-        debug(f"cids: {self.did}, returning {r}")
+        debug(f"cids: {self.did}, returning {cids}")
     if self.needSiblings():
         cids = siblings(cids)
     return cids
 Exporter.cardIds = cardIds
-    
+
 def setupMenu(browser):
     debug(f"Calling setupMenu() from exportFromBrowser")
     a = QAction("Export selection", browser)
@@ -197,7 +197,7 @@ addHook("browser.setupMenus", setupMenu)
 
 def exportInto(self, path):
     #Needed to change this to ensure it uses cardIds !
-    
+
         # sched info+v2 scheduler not compatible w/ older clients
         self._v2sched = self.col.schedVer() != 1 and self.includeSched
 
