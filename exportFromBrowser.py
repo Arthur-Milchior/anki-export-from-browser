@@ -178,6 +178,7 @@ def cardIds(self):
     if self.cids is not None:
         debug(f"cids: {self.cids}, returning it")
         cids= self.cids
+        self.count = len(cids)
     else:
         cids=oldCardIds(self)
         debug(f"cids: {self.did}, returning {cids}")
