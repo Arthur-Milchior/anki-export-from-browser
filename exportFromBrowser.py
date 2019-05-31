@@ -20,6 +20,7 @@ from anki.exporting import Exporter, AnkiExporter, exporters
 from anki.hooks import addHook, remHook
 from anki.lang import ngettext
 from anki.utils import ids2str
+from anki.lang import _
 
 
 def debug(t):

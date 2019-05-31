@@ -31,9 +31,9 @@ by other add-ons, default should be okay.
 * true means that, when you export a card, you export their siblings.
 * false means that you can export cards without their siblings.
 
-The entry of the "siblings" mapping are keys of exporter, or the constant "default". To control exporter created by other add-on, check their code to find their "key" value, and add it to this mapping. The default values are: 
+The entry of the "siblings" mapping are keys of exporter, or the constant "default". To control exporter created by other add-on, check their code to find their "key" value, and add it to this mapping. The default values are:
 * "default": the default value, when no other are used.
-* "Notes in Plain Text": exporting notes as txt files. 
+* "Notes in Plain Text": exporting notes as txt files.
 * "Cards in Plain Text": exporting cards as txt files.
 * "Anki Deck Package": exporting a .apkg file
 If another exporter is added by an add-on, add its key to this mapping
@@ -42,21 +42,21 @@ If another exporter is added by an add-on, add its key to this mapping
 
 ## Internal
 This add-on change
-* in ```aqt.exporting```, the method ```ExportDialog.__init__```. The new
+* in `aqt.exporting`, the method `ExportDialog.__init__`. The new
   method calls the previous version of the method.
-* in ```aqt.exporting```, the methods ```ExportDialog.setup```,
-  ```ExportDialog.accept```. The new methods do not call the previous
+* in `aqt.exporting`, the methods `ExportDialog.setup`,
+  `ExportDialog.accept`. The new methods do not call the previous
   version of the method.
-* in ```anki.exporting```, the method ```Exporter.cardIds``` is
+* in `anki.exporting`, the method `Exporter.cardIds` is
   modified. The former version of the method is called if the exporter
   is called from the browser with a non-empty selection.
-* in ```anki.exporting```, the method ```AnkiExporter.exportInto``` is
+* in `anki.exporting`, the method `AnkiExporter.exportInto` is
   redefined, not calling the previous version. A single line is
   changed. This change is sent to Anki in a (pull
   request)[https://github.com/dae/anki/pull/263].
 
 ## Version 2.0
-Sorry, but no such version, unless someone wants to pay for it. 
+Sorry, but no such version, unless someone wants to pay for it.
 
 ## Links, licence and credits
 
