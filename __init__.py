@@ -5,4 +5,4 @@
 # Feel free to contribute to this code on https://github.com/Arthur-Milchior/anki-export-from-browser
 # Add-on number 1983204951 https://ankiweb.net/shared/info/1983204951
 
-from . import exportFromBrowser
+from . import ankiExporting, aqtExporting, browser
