@@ -86,6 +86,8 @@ def accept(self):
             self.frm.includeMedia.isChecked())
         self.exporter.includeTags = (
             self.frm.includeTags.isChecked())
+        self.exporter.includeHTML = (
+            self.frm.includeHTML.isChecked())
 ### Starting change
         if self.frm.deck.currentIndex() == 0:#position 0 means: all decks.
             self.exporter.did = None
