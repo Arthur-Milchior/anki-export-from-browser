@@ -45,7 +45,7 @@ def setup(self, did):
         keyword arguments:
         did -- if None, then export whole anki. If did, export this deck. If list of cids, expots those cids.
         """
-        debug(f"Calling setup({did}), its cids is {self.cids}")
+        #debug(f"Calling setup({did}), its cids is {self.cids}")
         self.exporters = exporters()
         # if a deck specified, start with .apkg type selected
         idx = 0
@@ -62,7 +62,7 @@ def setup(self, did):
         self.decks = [_("All Decks")]
         if self.cids:
             bs=_("Browser's selection")
-            debug(f"Adding {bs}")
+            #debug(f"Adding {bs}")
             self.decks = self.decks+[bs]
         self.decks = self.decks + sorted(self.col.decks.allNames())
         self.frm.deck.addItems(self.decks)
@@ -79,7 +79,7 @@ def setup(self, did):
 ExportDialog.setup=setup
 
 def accept(self):
-        debug(f"Calling accept()")
+        #debug(f"Calling accept()")
         self.exporter.includeSched = (
             self.frm.includeSched.isChecked())
         self.exporter.includeMedia = (

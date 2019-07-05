@@ -50,6 +50,8 @@ This add-on change
 * in `anki.exporting`, the method `Exporter.cardIds` is
   modified. The former version of the method is called if the exporter
   is called from the browser with a non-empty selection.
+* in `anki.exporting`, the method `Exporter.__init__` is
+  modified. The former version of the method is called.
 * in `anki.exporting`, the method `AnkiExporter.exportInto` is
   redefined, not calling the previous version. A single line is
   changed. This change is sent to Anki in a (pull
