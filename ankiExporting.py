@@ -31,6 +31,7 @@ oldInit = Exporter.__init__
 def __init__(self,*args, **kwargs):
     oldInit(self, *args, **kwargs)
     self.cids = None
+Exporter.__init__ = __init__
 
 def needSiblings(self):
     userOption = mw.addonManager.getConfig(__name__)
