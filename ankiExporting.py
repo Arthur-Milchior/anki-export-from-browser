@@ -23,10 +23,6 @@ from aqt.utils import (checkInvalidFilename, getSaveFile, showInfo,
                        showWarning, tooltip)
 
 
-def debug(t):
-    print(t)
-    pass
-
 oldInit = Exporter.__init__
 def __init__(self,*args, **kwargs):
     oldInit(self, *args, **kwargs)
@@ -41,25 +37,20 @@ def needSiblings(self):
         r= siblings.get("default")
     if r is None:
         r = True
-    #debug(f"Calling needSiblings() with key {self.key}, returning {r}")
     return r
 Exporter.needSiblings = needSiblings
 
 def siblings(cids):
     siblings = mw.col.db.list(f"select id from cards where nid in (select nid from cards where id in {ids2str(cids)})")
-    #debug(f"Calling siblings({cids}), returning {siblings}")
     return siblings
 
 oldCardIds= Exporter.cardIds
 def cardIds(self):
-    #debug(f"Calling cardIds()")
     if self.cids is not None:
-        #debug(f"cids: {self.cids}, returning it")
         cids= self.cids
         self.count = len(cids)
     else:
         cids=oldCardIds(self)
-        #debug(f"cids: {self.did}, returning {cids}")
     if self.needSiblings():
         cids = siblings(cids)
     return cids
