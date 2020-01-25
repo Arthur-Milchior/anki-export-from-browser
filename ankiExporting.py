@@ -5,23 +5,11 @@
 # Feel free to contribute to this code on https://github.com/Arthur-Milchior/anki-export-from-browser
 # Add-on number 1983204951 https://ankiweb.net/shared/info/1983204951
 
-import os
-import re
-import time
 
-from PyQt5.QtWidgets import QAction
 
-from anki import Collection
-from anki.exporting import AnkiExporter, Exporter, exporters
-from anki.hooks import addHook, remHook
-from anki.lang import _, ngettext
+from anki.exporting import Exporter
 from anki.utils import ids2str
 from aqt import mw
-from aqt.exporting import ExportDialog
-from aqt.qt import QDialog, QDialogButtonBox, QKeySequence, QPushButton
-from aqt.utils import (checkInvalidFilename, getSaveFile, showInfo,
-                       showWarning, tooltip)
-
 
 oldInit = Exporter.__init__
 def __init__(self,*args, **kwargs):

@@ -9,16 +9,12 @@ import os
 import re
 import time
 
-from PyQt5.QtWidgets import QAction
-
-from anki import Collection
-from anki.exporting import AnkiExporter, Exporter, exporters
+from anki.exporting import exporters
 from anki.hooks import addHook, remHook
 from anki.lang import _, ngettext
-from anki.utils import ids2str
 from aqt import mw
 from aqt.exporting import ExportDialog
-from aqt.qt import QDialog, QDialogButtonBox, QKeySequence, QPushButton
+from aqt.qt import QDialog, QDialogButtonBox, QPushButton
 from aqt.utils import (checkInvalidFilename, getSaveFile, showInfo,
                        showWarning, tooltip)
 
