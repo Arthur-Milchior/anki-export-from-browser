@@ -1,8 +1,10 @@
 from PyQt5.QtWidgets import QAction
+
 from anki.hooks import addHook
+from aqt import mw
 from aqt.exporting import ExportDialog
 from aqt.qt import QKeySequence
-from aqt import mw
+
 
 def setupMenu(browser):
     a = QAction("Export selection", browser)
