@@ -35,13 +35,14 @@ ExportDialog.__init__=__init__
 def setup(self, did):
         """
         keyword arguments:
-        did -- if None, then export whole anki. If did, export this deck. If list of cids, expots those cids.
+        did -- if None, then export whole anki. If did, export this
+        deck. If list of cids, expots those cids.
         """
         self.exporters = exporters()
         # if a deck specified, start with .apkg type selected
         idx = 0
         if did or self.cids:
-            for c, (k,e) in enumerate(self.exporters):
+            for c, (k, e) in enumerate(self.exporters):
                 if e.ext == ".apkg":
                     idx = c
                     break
@@ -52,7 +53,7 @@ def setup(self, did):
         # deck list
         self.decks = [_("All Decks")]
         if self.cids:
-            bs=_("Browser's selection")
+            bs = _("Browser's selection")
             self.decks = self.decks+[bs]
         self.decks = self.decks + sorted(self.col.decks.allNames())
         self.frm.deck.addItems(self.decks)
@@ -66,7 +67,7 @@ def setup(self, did):
             self.frm.deck.setCurrentIndex(index)
         if self.cids:
             self.frm.deck.setCurrentIndex(1)
-ExportDialog.setup=setup
+ExportDialog.setup = setup
 
 def accept(self):
         self.exporter.includeSched = (
@@ -78,10 +79,10 @@ def accept(self):
         self.exporter.includeHTML = (
             self.frm.includeHTML.isChecked())
 ### Starting change
-        if self.frm.deck.currentIndex() == 0:#position 0 means: all decks.
+        if self.frm.deck.currentIndex() == 0: #position 0 means: all decks.
             self.exporter.did = None
             self.exporter.cids = None
-        elif self.frm.deck.currentIndex() == 1 and self.cids is not None:#position 1 means: selected decks.
+        elif self.frm.deck.currentIndex() == 1 and self.cids is not None: #position 1 means: selected decks.
             self.exporter.did = None
             self.exporter.cids = self.cids
         else:
