@@ -14,6 +14,31 @@ entire review history of the siblings will be missing. Personnally, I
 prefer to export siblings, even if it means exporting more than a
 deck. But since people may disagree, this option is configurable.
 
+## Warnings
+
+### Bug in deck exported before 2020-feb-02
+A previous version of the add-on add an hidden bug. When you exported
+cards selected in the browser, the file you obtained contained
+information about ALL decks. Even the decks unrelated to any card you
+selected.
+
+This create no bug when you imported those cards, since those decks
+without cards were ignored by Anki. However, it means that those deck
+contained extra information they were not supposed to contains. It
+contained the list of all of your decks, and this can be read by any
+people knowing how to read database content.
+
+I assume and hope that this was not a security problem for anyone, and
+that no "list of decks" contained sensitive information. But if your
+list of deck did contain sensitive informatio, I beg your pardon and
+you should ensore those shared decks are not publicly shared anymore.
+
+### Special field add-on
+Currently, this add-on is not compatible with "special field"
+add-on. This will change in the future, I sent a correction to the
+other add-on, I can't do more immediately.
+
+
 ## Usage
 Open the Browser, select the cards you want to export. Then go to
 Edit>Export selection (Ctrl+Shift+E), and the standard exporting
