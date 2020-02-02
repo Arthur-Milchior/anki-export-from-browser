@@ -9,10 +9,11 @@ import os
 import re
 import time
 
+from PyQt5.QtWidgets import QAction
+
 from anki.exporting import exporters
 from anki.hooks import addHook, remHook
 from anki.lang import _, ngettext
-from aqt import mw
 from aqt.exporting import ExportDialog
 from aqt.qt import QDialog, QDialogButtonBox, QPushButton
 from aqt.utils import (checkInvalidFilename, getSaveFile, showInfo,
@@ -35,8 +36,7 @@ ExportDialog.__init__=__init__
 def setup(self, did):
         """
         keyword arguments:
-        did -- if None, then export whole anki. If did, export this
-        deck. If list of cids, expots those cids.
+        did -- if None, then export whole anki. If did, export this deck. If list of cids, expots those cids.
         """
         self.exporters = exporters()
         # if a deck specified, start with .apkg type selected
@@ -67,7 +67,7 @@ def setup(self, did):
             self.frm.deck.setCurrentIndex(index)
         if self.cids:
             self.frm.deck.setCurrentIndex(1)
-ExportDialog.setup = setup
+ExportDialog.setup=setup
 
 def accept(self):
         self.exporter.includeSched = (

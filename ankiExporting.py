@@ -6,7 +6,6 @@
 # Add-on number 1983204951 https://ankiweb.net/shared/info/1983204951
 
 
-
 from anki.exporting import Exporter
 from anki.utils import ids2str
 from aqt import mw
@@ -18,31 +17,28 @@ def __init__(self,*args, **kwargs):
 Exporter.__init__ = __init__
 
 def needSiblings(self):
-    """Whether configuration states to export siblings for this exporter."""
     userOption = mw.addonManager.getConfig(__name__)
     siblings = userOption["siblings"]
-    r = siblings.get(self.key)
+    r=siblings.get(self.key)
     if r is None:
-        r = siblings.get("default")
+        r= siblings.get("default")
     if r is None:
         r = True
     return r
 Exporter.needSiblings = needSiblings
 
-def siblings(self, cids):
-    """Id of cards in cids and their siblings"""
-    return self.col.db.list(f"select id from cards where nid in (select nid from cards where id in {ids2str(cids)})")
+def siblings(cids):
+    siblings = mw.col.db.list(f"select id from cards where nid in (select nid from cards where id in {ids2str(cids)})")
+    return siblings
 
 oldCardIds= Exporter.cardIds
 def cardIds(self):
-    """Return self.cids or cids according to the selected exporter. And
-    their siblings if asked by configuration."""
     if self.cids is not None:
-        cids = self.cids
+        cids= self.cids
         self.count = len(cids)
     else:
-        cids = oldCardIds(self)
+        cids=oldCardIds(self)
     if self.needSiblings():
-        cids = siblings(self, cids)
+        cids = siblings(cids)
     return cids
 Exporter.cardIds = cardIds
