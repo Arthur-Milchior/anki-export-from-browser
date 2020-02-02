@@ -53,9 +53,9 @@ This add-on change
 * in `anki.exporting`, the method `Exporter.__init__` is
   modified. The former version of the method is called.
 * in `anki.exporting`, the method `AnkiExporter.exportInto` is
-  redefined, not calling the previous version. A single line is
-  changed. This change is sent to Anki in a (pull
-  request)[https://github.com/dae/anki/pull/263].
+  redefined, not calling the previous version. This change is used to
+  decide which decks are changed. This change is sent to Anki in a
+  (pull request)[https://github.com/ankitects/anki/pull/434].
 
 ## Version 2.0
 Sorry, but no such version, unless someone wants to pay for it.
