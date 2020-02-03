@@ -9,7 +9,6 @@
 from anki.exporting import Exporter, AnkiExporter
 from anki.utils import ids2str
 from aqt import mw
-import typing
 import os
 from anki.storage import Collection
 
@@ -154,7 +153,7 @@ def exportInto(self, path: str) -> None:
     self.postExport()
     self.dst.close()
 
-def deckIds(self) -> typing.List[int]:
+def deckIds(self):
     dids: List[int]
     if self.did:
         return [self.did] + [x[1] for x in self.src.decks.children(self.did)]
